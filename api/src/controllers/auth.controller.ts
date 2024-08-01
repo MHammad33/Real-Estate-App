@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import bcryptjs from "bcryptjs";
+import prismaClient from "../utils/prisma";
 
 // POST /api/v1/auth/login
 const loginUser = (req: Request, res: Response) => {
@@ -9,13 +10,25 @@ const loginUser = (req: Request, res: Response) => {
 // POST /api/v1/auth/register
 const registerUser = async (req: Request, res: Response) => {
 	console.log(req.body);
+	const { username, email } = req.body;
 
 	const salt = await bcryptjs.genSalt(10);
 	const hashedPassword = await bcryptjs.hash(req.body?.password, salt);
 
-	console.log(hashedPassword);
+	try {
+		const newUserCreated = await prismaClient.user.create({
+			data: {
+				username,
+				email,
+				password: hashedPassword,
+			},
+		});
 
-	res.json({ msg: "Register User" });
+		res.status(201).json({ msg: "User Created Successfully", newUserCreated });
+	} catch (error) {
+		console.log("Error creating a new user", error);
+		res.status(500).json({ msg: error });
+	}
 };
 
 // POST /api/v1/auth/logout
