@@ -73,7 +73,7 @@ const registerUser = async (req: Request, res: Response) => {
 
 // POST /api/v1/auth/logout
 const logoutUser = (req: Request, res: Response) => {
-	res.json({ msg: "Logout User" });
+	res.clearCookie("token").status(200).json({ msg: "Logout Successfull" });
 };
 
 export default {
