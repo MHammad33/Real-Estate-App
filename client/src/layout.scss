@@ -9,17 +9,17 @@
 	flex-direction: column;
 
 	@include lg {
-		background-color: rgb(224, 213, 234);
+		// background-color: rgb(224, 213, 234);
 		max-width: 1280px;
 	}
 
 	@include md {
-		background-color: rgb(211, 211, 197);
+		// background-color: rgb(211, 211, 197);
 		max-width: 768px;
 	}
 
 	@include sm {
-		background-color: rgb(210, 194, 194);
+		// background-color: rgb(210, 194, 194);
 		max-width: 640px;
 	}
 
