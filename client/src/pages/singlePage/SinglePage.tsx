@@ -8,11 +8,12 @@ const SinglePage: FC = () => {
 	return (
 		<div className="singlePage">
 			<div className="listContainer">
-				<div className="wrapper"></div>
-				<Filter />
-				{data.map((item) => (
-					<Card key={item.id} />
-				))}
+				<div className="wrapper">
+					<Filter />
+					{data.map((item) => (
+						<Card key={item.id} />
+					))}
+				</div>
 			</div>
 			<div className="mapContainer">Map</div>
 		</div>
