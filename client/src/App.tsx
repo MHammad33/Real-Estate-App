@@ -1,7 +1,12 @@
+import { Navbar } from "./components";
 import "./layout.scss";
 
 function App() {
-	return <div className="layout">Hello</div>;
+	return (
+		<div className="layout">
+			<Navbar />
+		</div>
+	);
 }
 
 export default App;
