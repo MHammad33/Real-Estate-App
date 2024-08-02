@@ -5,6 +5,8 @@
 	max-width: 1366px;
 	margin: 0 auto;
 	padding: 0 20px;
+	display: flex;
+	flex-direction: column;
 
 	@include lg {
 		background-color: rgb(224, 213, 234);
@@ -19,5 +21,10 @@
 	@include sm {
 		background-color: rgb(210, 194, 194);
 		max-width: 640px;
+	}
+
+	.content {
+		// height: calc(100vh - 100px);
+		flex: 1;
 	}
 }
